@@ -1,0 +1,16 @@
+[[Invalid #]pq] sI   	  # Adds string to reg I
+[Enter CC #] sP		  # Adds string to reg P
+[[American Express]pq] sA # Adds string to reg A
+[[Visa]pq] sV		  # Adds string to reg V
+
+lP p ? sC  	          # Prints reg P, reads card number to reg C
+lC d Z sL		  # Lads number length to reg L
+lL 14 >I		  # Compares CC# length to 14, if CC<14, program quits
+lL 16 <I		  # Compares CC# length to 16, if CC>16, program quits
+10 lL ^ d		  # Math
+100 / lC r / d		  # drops CC# to first two digits
+34 =A			  # Amex card
+37 =A 			  # Amex card
+10 / lC r /		  # Drops CC# to first digit
+4 =V			  # Visa card
+lI x			  # Invalid Number
